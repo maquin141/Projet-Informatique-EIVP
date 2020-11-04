@@ -2,15 +2,28 @@ import matplotlib.pyplot as pl
 import matplotlib
 import numpy as np
 import math as mp
+import csv
 import time
 from datetime import datetime
+from matplotlib.dates import AutoDateLocator
 from datetime import time
 
-def fonction1():#fonction pour afficher le tableau où toutes les données sont séparées par des points virgules et sous le format str: 'id1';'noise1';'temp1';'humidity1';'lum1';'co2 1';'aaaa-mm-jj hh:mm:ss+0200';'id2';'noise2'...
-    f=open('/Users/felixmaquin/Documents/Projet Info/données tableau texte.txt')
-    tab=f.readlines()
-    for ligne in (tab):
-        return(ligne)
+
+
+def fonction1():#fonction pour afficher le tableau où toutes les données sont séparées par des points virgules et sous le format str: id1;noise1;temp1;humidity1;lum1;co2 1;aaaa-mm-jj hh:mm:ss+0200;id2;noise2...
+    Tableau=[]
+    f= open('/Users/felixmaquin/Documents/Projet Info/EIVP_KM.csv')
+    csv_f=csv.reader(f,delimiter=';')
+    for row in csv_f:
+        Tableau.append(row)
+    f.close
+    S=[]
+    for i in range (1,len(Tableau)):
+        a=Tableau[i]
+        c=";".join(a)
+        S.append(c)
+    Z1=";".join(S)
+    return(Z1)
 #print(fonction1())
 
 def separation():
@@ -23,6 +36,7 @@ def separation():
     C=[] # liste contenant date et heure sous la forme 'aaaa-mm-jj hh:mm:ss +0200'
     Y=[] # liste contenant seulement la date sous la forme 'aaaa-mm-jj'
     J=[]
+    W=[]
     Z=[] # liste contenant seulement les heures sous la forme 'hh:mm:ss'
     Q=fonction1()
     A=Q.split(";")#dès qu'un point virgule est rencontré, la fonction split prend l'élément juste avant et juste après le point virgule et les met dans une liste séparés par des virgules
@@ -44,16 +58,14 @@ def separation():
         e=C[b].split(" ")
         Y.append(e[0])
         Z.append(e[1])
+        W.append(Y[b]+" "+Z[b])
     for u in range (len(L)):
-        J.append([L[u],M[u],N[u],P[u],I[u],E[u],Y[u],C[u],Z[u]])#la liste J contient donc des sous listes contenant une date avec ses trois formes ('aaaa-mm-ss hh:mm:ss+0200'(C[u]), 'aaaa-mm-jj'(Y[u]), 'hh:mm:ss'(Z[u])) et les éléments id, noise, temp, humidity, lum, co2 associés
+        J.append([L[u],M[u],N[u],P[u],I[u],E[u],Y[u],C[u],Z[u],W[u]])#la liste J contient donc des sous listes contenant une date avec ses trois formes ('aaaa-mm-ss hh:mm:ss+0200'(C[u]), 'aaaa-mm-jj'(Y[u]), 'hh:mm:ss'(Z[u])) et les éléments id, noise, temp, humidity, lum, co2 associés
     d=len(J)
     J[d-1][7].strip('"\n')
-    return(L,M,N,P,I,E,C,Y,J,Z)
-#print(separation())
+    return(L,M,N,P,I,E,C,Y,J,Z,W)
+#print((separation())
 
-
-
-#print(separation(Q)[7])    
 import math as mp
 import time
 from datetime import datetime
@@ -835,17 +847,159 @@ def indicecorrelation():
     return()
                 
 #print(indicecorrelation())
-        
-            
-            
-        
-    
-    
-    
 
+def maxecart(L):
+    if len(L)==1:
+        return(0)
+    elif len(L)==2:
+        return(0)
+    else:
+        y=float(L[1])-float(L[0])
+        k=0
+        for i in range (2,(len(L))-1,2):
+            if float(L[i+1])-float(L[i])>y:
+                y=float(L[i+1])-float(L[i])
+                k=i
+    return(k)
         
-        
+def minecart(L):
+    if len(L)==1:
+        return(0)
+    elif len(L)==2:
+        return(0)
+    else:
+        u=float(L[1])-float(L[0])
+        h=0
+        for i in range (2,len(L)-1,2):
+            if float(L[i+1])-float(L[i])<u:
+                h=i
+                u=float(L[i+1])-float(L[i])
+    return(h)
 
+
+import time
+from datetime import datetime
+from matplotlib.dates import AutoDateLocator
+from datetime import time
+
+
+def horaires():
+    r=input('Pour quelle date souhaitez-vous connaître les horaires occupation des bureaux?(aaaa-mm-jj sauf 2020-09-11, 2019-08-11, 2019-08-25(car nous ne disposons pas des horaires de mesure sur toute la journée)')
+    g=separation()[8]
+    L=[]
+    M=[]
+    N=[]
+    U=[]
+    P=[]
+    G=[]
+    F=[]
+    I=[]
+    K=[]
+    O=[]
+    Q=[]
+    V=[]
+    A1=[]
+    A2=[]
+    X=[]
+    H=[]
+    E=[]
+    B1=[]
+    B2=[]
+    C1=[]
+    C2=[]
+    C3=[]
+    C4=[]
+    C5=[]
+    S4=[]
+    W=['heure arrivée matin','heure départ pause déjeuner','heure retour pause déjeuner','heure départ soir']
+    for i in range (len(g)):
+        if g[i][6]==r:
+            L.append(g[i][8])#j'ajoute dans L les heures hh:mm:ss de la date choisie
+            U.append(g[i][1])#j'ajoute dans U les noises de la date choisie
+            M.append(g[i][4])#j'ajoute dans M les lum de la date choisie
+            N.append(g[i][5])#j'ajoute dans N les co2 de la date choisie
+    A=tridates(L,M)[0]
+    B=tridates(L,M)[1]
+    C=tridates(L,N)[1]
+    D=tridates(L,U)[1]
+    t=0
+    while t<len(D)-1:
+        if D[t+1]>=D[t]:#si il y a une augmentation du bruit d'une heure t hh:mm:ss à la suivante t+1( qui est sûrement liée à l'arrivée des employés dans le bureau, j'ajoute la date t dans I, le co2 de cette date dans K et le lum de cette date dans F. Je fais ça pour tous les éléments de D
+            I.append(A[t])
+            K.append(C[t])
+            F.append(B[t])
+        t=t+1 
+    if len(I)==0:
+        w1=0
+        while w1<len(A):
+            if '07:45:00'<A[w1]<'09:40:00' and int(B[w1])>=108:#si la liste I est vide, j'enlève la contrainte de l'augmentation du bruit d'une heure à la suivante et je réduis la contrainte sur les 120 lux de 10%
+                P.append(C[w1])
+                G.append(A[w1])
+            w1=w1+1
+    else:
+        j=0
+        while j<len(I):
+            if '07:45:00'<I[j]<'09:40:00' and int(F[j])>=120:#parmi les dates de la liste I triées avec la boucle while précédente, je ne sélectionne que celles comprises entre 07:45:00 et 09:15:00( environ la plage horaire où les employés arrivent) et dont la luminosité est supérieure à 120 lux(une règlementation oblige aux patrons un minimum de  120 lux pour ses employés pour travailler dans un bureau) et j'ajoute dans G ces dates et dans P le co2 de ces dates
+                P.append(K[j])
+                G.append(I[j])
+            j=j+1
+        if len(P)==0 and len(G)==0:#si avec les contraintes de l'augmentation du bruit d'une heure à la suivante, la date comprise entre 07:45:00 et 09:45:00 et la luminosité d'une date supérieure à 120, il n'y a aucune date remplissant ces critères dans A, on enlève la contrainte de l'augmentation du bruit d'une heure de A à la suivante
+            w2=0
+            while w2<len(A):
+                if '07:45:00'<A[w2]<'09:40:00' and int(B[w2])>=120:
+                    P.append(C[w2])
+                    G.append(A[w2])
+                w2=w2+1
+    z=maxecart(P)#parmi les dates restantes dans G, la fonction maxecart me permet de calculer l'écart maximal entre le co2 d'une date et de la suivante( pour l'horaore d'arrivée au bureau, il devrait y avoir une forte augmentation de co2 causé par la respiration des employés) et de renvoyer l'indice de la date pour laquelle l'augmentation du co2 est maximale avec celle qui suit.
+    W.append(G[z])#j'ajoute dans W la date sélectionnée juste avant: c'est la date d'arrivée des employés au bureau le matin
+    s=0
+    while s<len(D)-1:
+        if D[s+1]<=D[s]:
+            O.append(A[s])
+            Q.append(C[s])
+            V.append(B[s])
+        s=s+1
+    d=0
+    while d<len(O):
+        if '11:45:00'<O[d]<'13:30:00':#parmi les dates triées avec la boucle while précédente et mises dans la liste O, je ne fais pas intervenir la luminosité car aux alentours de midi, celle-ci reste supérieure à 120 lux avec la contribution de la lumière naturelle
+            A1.append(Q[d])
+            A2.append(O[d])
+        d=d+1
+    w=minecart(A1)
+    W.append(A2[w])
+    l=0
+    while l<len(D)-1:
+        if D[l+1]>=D[l]:
+            X.append(A[l])
+            H.append(C[l])
+            E.append(B[l])
+        l=l+1
+    k=0
+    while k<len(X):
+        if '13:45:00'<X[k]<'14:30:00' and int(E[k])>=120:#pour le retour de la pose déjeuner, je reprend le critère lum>120 car les employés se remettent à travailler et la règlementation impose ce minimum de luminosité. Je n'enlève pas de conditions comme précédemment pour l'horaire d'arrivée si X et H sont vides ou si B1 et B2 sont vides car en testant sur les dates, je n'ai pas eu de problème de ce type( alors que j'en avait eu pour l'horaire d'arrivée)
+            B1.append(H[k])
+            B2.append(X[k])
+        k=k+1
+    v=maxecart(B1)
+    W.append(B2[v])
+    z1=0
+    while z1<len(L)-1:
+        if D[z1+1]<=D[z1]:
+            C1.append(A[z1])
+            C2.append(C[z1])
+            C3.append(B[z1])
+        z1=z1+1
+    e1=0
+    while e1<len(C1):
+        if '16:30:00'<C1[e1]<'19:30:00':#je ne rajoute pas le critère de la luminosité inférieure à 120 car les dates sont en Août et Septembre et la luminosité reste supérieure à 120 lux entre 16:30:00 et 19:30:00 du fait de la lumière naturelle à ce moment de l'année
+                C4.append(C2[e1])
+                C5.append(C1[e1])
+        e1=e1+1
+    n=minecart(C4)
+    W.append(C5[n])
+    return(W)
+        
+print(horaires())
 
 
 
