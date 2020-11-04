@@ -976,7 +976,7 @@ def horaires():
         l=l+1
     k=0
     while k<len(X):
-        if '13:45:00'<X[k]<'14:30:00' and int(E[k])>=120:#pour le retour de la pose déjeuner, je reprend le critère lum>120 car les employés se remettent à travailler et la règlementation impose ce minimum de luminosité. Je n'enlève pas de conditions comme précédemment pour l'horaire d'arrivée si X et H sont vides ou si B1 et B2 sont vides car en testant sur les dates, je n'ai pas eu de problème de ce type( alors que j'en avait eu pour l'horaire d'arrivée)
+        if '13:45:00'<X[k]<'14:30:00' and int(E[k])>=120:#pour le retour de la pose déjeuner, je reprend le critère lum>120 car les employés se remettent à travailler et la règlementation impose ce minimum de luminosité. Je n'enlève pas de conditions comme précédemment pour l'horaire d'arrivée si X et H sont vides ou si B1 et B2 sont vides car en testant sur les dates, je n'ai pas eu de problème de ce type( alors que j'en avais eu pour l'horaire d'arrivée)
             B1.append(H[k])
             B2.append(X[k])
         k=k+1
