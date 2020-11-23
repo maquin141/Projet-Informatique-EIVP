@@ -1001,7 +1001,8 @@ def anomalies():
     for a in range(len(K)):
         K[a]=float(K[a])#conversion de tous les éléments de K de str en float
     pl.plot(tridates(S,K)[0],tridates(S,K)[1])#on trie les dates pour qu'elles apparaissent par ordre chronologique sur l'axe des abscisses et on leur associe la valeur en ordonnée correspondante
-    pl.plot(liste_abscissestrace,liste_ordonneestrace,"o",label='anomalie')#on fait apparaître les points correspondant à des anomalies
+    pl.plot(liste_abscissestrace,liste_ordonneestrace,linestyle='none', marker="o",c='lime',markersize=3)#on fait apparaître les points correspondant à des anomalies
+    pl.annotate('points verts=anomalies', (0.65,0.95),xycoords='axes fraction')
     pl.xticks(rotation='vertical')
     pl.gca().yaxis.set_major_locator(matplotlib.ticker.MaxNLocator(8))
     pl.gca().xaxis.set_major_locator(matplotlib.ticker.MaxNLocator(8))
@@ -1017,7 +1018,6 @@ def anomalies():
     elif r=='co2':
         pl.ylabel('co2(ppm)')
     pl.show()
-    pl.legend()
     return()
 
 print(anomalies())
