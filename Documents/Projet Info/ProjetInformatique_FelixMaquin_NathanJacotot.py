@@ -16,6 +16,7 @@ from matplotlib.dates import AutoDateLocator
 from datetime import time
 
 
+
 def fonction1():#fonction pour afficher le tableau où toutes les données sont séparées par des points virgules et sous le format str: id1;noise1;temp1;humidity1;lum1;co2 1;aaaa-mm-jj hh:mm:ss+0200;id2;noise2...
     Tableau=[]
     f= open('id.csv')
@@ -70,10 +71,6 @@ def separation():
     return(liste_id,liste_noise,liste_temp,liste_humidity,liste_lum,liste_co2,liste_dateheure,liste_date,J,liste_heure)
 #print((separation()))
 
-import math as mp
-import time
-from datetime import datetime
-from matplotlib.dates import AutoDateLocator
 
 def calcmin(L):
     c=0
@@ -398,10 +395,7 @@ def tracehumidex():#cette fonction permet de tracer l'indice humidex en fonction
     return()
         
 #print(tracehumidex())
-       
-import time
-from datetime import datetime
-from datetime import time     
+           
        
     
 def humidexdate():#cette fonction renvoie une liste de listes de la forme [[date,indice umidex]] si l'utilisateur ne veut calculer l'indice humidex que pour une seule date ou [[date1,indice humidex1],[date2, indice humidex2],...]si il mentionne un intervalle de dates pour lequel il veut avoir l'indice humidex
@@ -1050,12 +1044,6 @@ def minecart(L):
                 h=i
                 u=float(L[i+1])-float(L[i])
     return(h)
-
-
-import time
-from datetime import datetime
-from matplotlib.dates import AutoDateLocator
-from datetime import time
 
 
 def horaires():
