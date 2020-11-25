@@ -19,7 +19,7 @@ from datetime import time
 
 def fonction1():#fonction pour afficher le tableau où toutes les données sont séparées par des points virgules et sous le format str: id1;noise1;temp1;humidity1;lum1;co2 1;aaaa-mm-jj hh:mm:ss+0200;id2;noise2...
     Tableau=[]
-    f= open('id.csv')
+    f= open('EIVP_KM_ColonnesModifiees.csv')
     csv_f=csv.reader(f,delimiter=';')
     for row in csv_f:
         Tableau.append(row)
