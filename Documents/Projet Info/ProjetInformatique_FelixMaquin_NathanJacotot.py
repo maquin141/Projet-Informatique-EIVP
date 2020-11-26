@@ -46,7 +46,7 @@ def separation():
     liste_heure=[] # liste contenant seulement les heures sous la forme 'hh:mm:ss+02:00'
     Q=fonction1()
     A=Q.split(";")#dès qu'un point virgule est rencontré, la fonction split prend l'élément juste avant et juste après le point virgule et les met dans une liste séparés par des virgules
-    for i in range (0,len(A)-6,7):#je ne sélectionne que les identifiants qui sont présents dans la liste aux positions multiples de 7: id1,noise1,temp1,humidity1,lum1,co2 1, sent_at1,id2,...
+    for i in range (0,len(A)-6,7):#on ne sélectionne que les identifiants qui sont présents dans la liste aux positions multiples de 7: id1,noise1,temp1,humidity1,lum1,co2 1, sent_at1,id2,...
         liste_id.append(A[i])
     for j in range(1,len(A)-5,7):#on ne sélectionne que les éléments de noise qu'on met dans une liste
         liste_noise.append(A[j])
@@ -60,7 +60,7 @@ def separation():
         liste_co2.append(A[z])
     for r in range (6,len(A),7):#on ne sélectionne que les éléments de sent_at sous la forme 'aaaa-mm-jj hh:mm:ss+0200' qu'on met dans une liste
         liste_dateheure.append(A[r])
-    for b in range(len(liste_dateheure)):#dans la liste précédente, pour chaque sent_at, dès que l'espace séparant le jour et l'heure est rencontré, je place dans la liste liste_date que 'aaaa-mm-jj' et dans la liste liste_heure que 'hh:mm:ss+02:00'
+    for b in range(len(liste_dateheure)):#dans la liste précédente, pour chaque sent_at, dès que l'espace séparant le jour et l'heure est rencontré, on place dans la liste liste_date que 'aaaa-mm-jj' et dans la liste liste_heure que 'hh:mm:ss+02:00'
         e=liste_dateheure[b].split(" ")
         liste_date.append(e[0])
         liste_heure.append(e[1])
