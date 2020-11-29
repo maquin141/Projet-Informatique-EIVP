@@ -452,7 +452,7 @@ def indicecorrelation():
             pl.legend()
             pl.show()
         else:#on retourne seulement la liste de l'indice de corrélation et celle des dates si l'utilisateur ne choisit pas de tracer
-            return(valeurcorrelation(C,D))
+            return(valeurcorrelation(C,A,B),D)
     elif b=='non' and a=='2':
         for a2 in range (len(g)):
             A.append(float(g[a2][1]))#A contient toutes les valeurs du paramètre noise
@@ -471,7 +471,7 @@ def indicecorrelation():
             pl.legend()
             pl.show()
         else:#on retourne seulement la liste de l'indice de corrélation et celle des dates si l'utilisateur ne choisit pas de tracer
-            return(valeurcorrelation(C,D))
+            return(valeurcorrelation(C,A,B),D)
     elif b=='non' and a=='3':
         for a3 in range (len(g)):
             A.append(float(g[a3][1]))#A contient toutes les valeurs du paramètre noise
@@ -490,7 +490,7 @@ def indicecorrelation():
             pl.legend()
             pl.show()
         else:#on retourne seulement la liste de l'indice de corrélation et celle des dates si l'utilisateur ne choisit pas de tracer
-            return(valeurcorrelation(C,D))
+            return(valeurcorrelation(C,A,B),D)
     elif b=='non' and a=='4':
         for a4 in range (len(g)):
             A.append(float(g[a4][1]))#A contient toutes les valeurs du paramètre noise
@@ -509,7 +509,7 @@ def indicecorrelation():
             pl.legend()
             pl.show()
         else:#on retourne seulement la liste de l'indice de corrélation et celle des dates si l'utilisateur ne choisit pas de tracer
-            return(valeurcorrelation(C,D))
+            return(valeurcorrelation(C,A,B),D)
     elif b=='non' and a=='5':
         for a5 in range (len(g)):
             A.append(float(g[a5][2]))#A contient toutes les valeurs du paramètre temp
@@ -528,7 +528,7 @@ def indicecorrelation():
             pl.legend()
             pl.show()
         else:#on retourne seulement la liste de l'indice de corrélation et celle des dates si l'utilisateur ne choisit pas de tracer
-            return(valeurcorrelation(C,D))
+            return(valeurcorrelation(C,A,B),D)
     elif b=='non' and a=='6':
         for a6 in range (len(g)):
             A.append(float(g[a6][2]))#A contient toutes les valeurs du paramètre temp
@@ -547,7 +547,7 @@ def indicecorrelation():
             pl.legend()
             pl.show()
         else:#on retourne seulement la liste de l'indice de corrélation et celle des dates si l'utilisateur ne choisit pas de tracer
-            return(valeurcorrelation(C,D))
+            return(valeurcorrelation(C,A,B),D)
     elif b=='non' and a=='7':
         for a7 in range (len(g)):
             A.append(float(g[a7][2]))#A contient toutes les valeurs du paramètre temp
@@ -566,7 +566,7 @@ def indicecorrelation():
             pl.legend()
             pl.show()
         else:#on retourne seulement la liste de l'indice de corrélation et celle des dates si l'utilisateur ne choisit pas de tracer
-            return(valeurcorrelation(C,D))
+            return(valeurcorrelation(C,A,B),D)
     elif b=='non' and a=='8':
         for a8 in range (len(g)):
             A.append(float(g[a8][3]))#A contient toutes les valeurs du paramètre humidity
@@ -585,7 +585,7 @@ def indicecorrelation():
             pl.legend()
             pl.show()
         else:#on retourne seulement la liste de l'indice de corrélation et celle des dates si l'utilisateur ne choisit pas de tracer
-            return(valeurcorrelation(C,D))
+            return(valeurcorrelation(C,A,B),D)
     elif b=='non' and a=='9':
         for a9 in range (len(g)):
             A.append(float(g[a9][3]))#A contient toutes les valeurs du paramètre humidity
@@ -604,7 +604,7 @@ def indicecorrelation():
             pl.legend()
             pl.show()
         else:#on retourne seulement la liste de l'indice de corrélation et celle des dates si l'utilisateur ne choisit pas de tracer
-            return(valeurcorrelation(C,D))
+            return(valeurcorrelation(C,A,B),D)
     elif b=='non' and a=='10':
         for a10 in range(len(g)):
             A.append(float(g[a10][4]))#A contient toutes les valeurs du paramètre lum
@@ -623,7 +623,7 @@ def indicecorrelation():
             pl.legend()
             pl.show()
         else:#on retourne seulement la liste de l'indice de corrélation et celle des dates si l'utilisateur ne choisit pas de tracer
-            return(valeurcorrelation(C,A,B))
+            return(valeurcorrelation(C,A,B),D)
     elif b=='oui' and a=='1':
         t=input('Quelle date initiale souhaitez-vous pour évolution des variables?(aaaa-mm-jj)')
         k=input('Quelle date finale souhaitez-vous pour évolution des variables?(aaaa-mm-jj)')
@@ -645,7 +645,7 @@ def indicecorrelation():
             pl.legend()
             pl.show()
         else:#on retourne seulement la liste de l'indice de corrélation et celle des dates si l'utilisateur ne choisit pas de tracer
-            return(valeurcorrelation(C,D))
+            return(valeurcorrelation(C,A,B),D)
     elif b=='oui' and a=='2':
         t=input('Quelle date initiale souhaitez-vous pour évolution des variables?(aaaa-mm-jj)')
         k=input('Quelle date finale souhaitez-vous pour évolution des variables?(aaaa-mm-jj)')
@@ -667,7 +667,7 @@ def indicecorrelation():
             pl.legend()
             pl.show()
         else:
-            return(valeurcorrelation(C,D))
+            return(valeurcorrelation(C,A,B),D)
     elif b=='oui' and a=='3':
         t=input('Quelle date initiale souhaitez-vous pour évolution des variables?(aaaa-mm-jj)')
         k=input('Quelle date finale souhaitez-vous pour évolution des variables?(aaaa-mm-jj)')
@@ -689,7 +689,7 @@ def indicecorrelation():
             pl.legend()
             pl.show()
         else:#on retourne seulement la liste de l'indice de corrélation et celle des dates si l'utilisateur ne choisit pas de tracer
-            return(valeurcorrelation(C,D))
+            return(valeurcorrelation(C,A,B),D)
     elif b=='oui' and a=='4':
         t=input('Quelle date initiale souhaitez-vous pour évolution des variables?(aaaa-mm-jj)')
         k=input('Quelle date finale souhaitez-vous pour évolution des variables?(aaaa-mm-jj)')
@@ -711,7 +711,7 @@ def indicecorrelation():
             pl.legend()
             pl.show()
         else:#on retourne seulement la liste de l'indice de corrélation et celle des dates si l'utilisateur ne choisit pas de tracer
-            return(valeurcorrelation(C,D))
+            return(valeurcorrelation(C,A,B),D)
     elif b=='oui' and a=='5':
         t=input('Quelle date initiale souhaitez-vous pour évolution des variables?(aaaa-mm-jj)')
         k=input('Quelle date finale souhaitez-vous pour évolution des variables?(aaaa-mm-jj)')
@@ -733,7 +733,7 @@ def indicecorrelation():
             pl.legend()
             pl.show()
         else:#on retourne seulement la liste de l'indice de corrélation et celle des dates si l'utilisateur ne choisit pas de tracer
-            return(valeurcorrelation(C,D))
+            return(valeurcorrelation(C,A,B),D)
     elif b=='oui' and a=='6':
         t=input('Quelle date initiale souhaitez-vous pour évolution des variables?(aaaa-mm-jj)')
         k=input('Quelle date finale souhaitez-vous pour évolution des variables?(aaaa-mm-jj)')
@@ -755,7 +755,7 @@ def indicecorrelation():
             pl.legend()
             pl.show()
         else:#on retourne seulement la liste de l'indice de corrélation et celle des dates si l'utilisateur ne choisit pas de tracer
-            return(valeurcorrelation(C,D))
+            return(valeurcorrelation(C,A,B),D)
     elif b=='oui' and a=='7':
         t=input('Quelle date initiale souhaitez-vous pour évolution des variables?(aaaa-mm-jj)')
         k=input('Quelle date finale souhaitez-vous pour évolution des variables?(aaaa-mm-jj)')
@@ -777,7 +777,7 @@ def indicecorrelation():
             pl.legend()
             pl.show()
         else:#on retourne seulement la liste de l'indice de corrélation et celle des dates si l'utilisateur ne choisit pas de tracer
-            return(valeurcorrelation(C,D))
+            return(valeurcorrelation(C,A,B),D)
     elif b=='oui' and a=='8':
         t=input('Quelle date initiale souhaitez-vous pour évolution des variables?(aaaa-mm-jj)')
         k=input('Quelle date finale souhaitez-vous pour évolution des variables?(aaaa-mm-jj)')
@@ -799,7 +799,7 @@ def indicecorrelation():
             pl.legend()
             pl.show()
         else:#on retourne seulement la liste de l'indice de corrélation et celle des dates si l'utilisateur ne choisit pas de tracer
-            return(valeurcorrelation(C,D))
+            return(valeurcorrelation(C,A,B),D)
     elif b=='oui' and a=='9':
         t=input('Quelle date initiale souhaitez-vous pour évolution des variables?(aaaa-mm-jj)')
         k=input('Quelle date finale souhaitez-vous pour évolution des variables?(aaaa-mm-jj)')
@@ -821,7 +821,7 @@ def indicecorrelation():
             pl.legend()
             pl.show()
         else:#on retourne seulement la liste de l'indice de corrélation et celle des dates si l'utilisateur ne choisit pas de tracer
-            return(valeurcorrelation(C,D))
+            return(valeurcorrelation(C,A,B),D)
     elif b=='oui' and a=='10':
         t=input('Quelle date initiale souhaitez-vous pour évolution des variables?(aaaa-mm-jj)')
         k=input('Quelle date finale souhaitez-vous pour évolution des variables?(aaaa-mm-jj)')
@@ -843,7 +843,7 @@ def indicecorrelation():
             pl.legend()
             pl.show()
         else:#on retourne seulement la liste de l'indice de corrélation et celle des dates si l'utilisateur ne choisit pas de tracer
-            return(valeurcorrelation(C,D))
+            return(valeurcorrelation(C,A,B),D)
     return()
                 
 #print(indicecorrelation())
@@ -1014,7 +1014,7 @@ def anomalies():
     pl.show()
     return()
 
-print(anomalies())
+#print(anomalies())
 
 
 def maxecart(L):#renvoie l'indice dont la valeur associée correspond à un écart maximal par rapport à la valeur précédente. Si la liste ne contient qu'un ou deux éléments, on renvoie l'indice 0 
